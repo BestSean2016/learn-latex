@@ -2,4 +2,5 @@
 *.dvi
 *.pdf
 *.log
+*.out
 *.backup
