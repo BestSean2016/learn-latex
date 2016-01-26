@@ -1,5 +1,8 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{amsopn}
+\usepackage{hyperref}
+\usepackage{movie15}
+%%% \usepackage{media9}
 \DeclareMathOperator{\sech}{sech}
 
 \begin{document}
@@ -22,6 +25,8 @@ Notice that not only do we need to evaluate the function \(f\) at \(x_n\), but a
 For example, we look at a function for which there is no formula for the solution: \(f(x)=\tanh(x) - x/3\) (we are looking for a non-zero solution). Since \(\tanh'(x)=\frac{1}{\cosh^2(x)}=\sech^2(x)\), the update rule becomes: \begin{equation} \label{eq:3} x_{n+1}=x_n-\frac{\tanh(x_n)-x_n/3}{\sech^2(x_n)-1/3}. \end{equation}
 
 
+\includemovie{1cm}{1cm}{300px-NewtonIteration_Ani.gif}
+
 ... ...
 
 Exercise 5. Using root-finding calculate \(\sqrt{R}\). Of course, MATLAB has the function sqrt and also the power function as we saw in the previous lecture. But pretend that it did not. What is \(\sqrt{R}\)? Find a simple function \(f\) (that doesn't use the square-root function) so that \(f(\sqrt{2})=0\). (There are several options, so if you don't manage with one option, try another!) Find \(\sqrt{2}\) like a Babylonian†. How many iterations do you need to get an answer that is 1e–15 from the answer given by MATLAB‡? Note: this problem will require you to use a pencil and paper. You will need to differentiate, divide and simplify a fraction before you type your code in MATLAB.
@@ -39,6 +44,11 @@ Exercise 6. As in the previous problem, write an iterative code that will find \
 
 \(f(x)=\sqrt{x}*\sqrt{x} - x\)
 
-\(x_{n+1} = x_{n} - (\sqrt{x_{n}}*\sqrt{x_{n}} - x_{n})/( - 1))
+\(x_{n+1} = x_{n} - (\sqrt{x_{n}}*\sqrt{x_{n}} - x_{n})/(- 1)\)
+
+
+
+\[\frac{{{x^{\frac{1}{2}}}}}{{{{\left( {{x^{\frac{1}{2}}}} \right)}^\prime }}} = \frac{{{x^{\frac{1}{2}}}}}{{\frac{1}{2}\left( {{x^{ - \frac{1}{2}}}} \right)}} = 2{x^{\frac{1}{2}}}{x^{\frac{1}{2}}} = 2x\]
+
 
 \end{document}
