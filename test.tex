@@ -1,0 +1,44 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsopn}
+\DeclareMathOperator{\sech}{sech}
+
+\begin{document}
+
+Many mathematical problems involve solving equations. And while linear equations can be solved rather easily, nonlinear ones cannot. A nonlinear equation can always be written as
+
+\begin{equation} \label{eq:non-linear:function} f(x)=0 \end{equation}
+
+
+For a suitably chosen function \(f\). For example, if we want to find \(x\) so that \(\tanh(x)=x/3\), we could instead chose \(f(x)=\tanh(x)-x/3\) and solve equation (1). Finding solutions to (1) is called "root-finding" (a "root" being a value of \(x\) for which the equation is satisfied).
+
+We almost have all the tools we need to build a basic and powerful root-finding algorithm, Newton's method*. Newton's method is an iterative method. This means that there is a basic mechanism for taking an approximation to the root, and finding a better one. After enough iterations of this, one is left with an approximation that can be as good as you like (you are also limited by the accuracy of the computation, in the case of MATLAB®, 16 digits).
+
+Iterative methods entail doing the exact same thing over and over again. This is perfect for a computer.
+
+The actual iteration starts from an approximation \(x_n\) at the \(n-\)th step and defines the next one, \(x_{n+1}\) : \begin{equation} \label{eq:2} x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)} \end{equation}
+
+Notice that not only do we need to evaluate the function \(f\) at \(x_n\), but also we need to evaluate the derivative, \(f'(x_n)\). This could be a problem if the derivative is unknown, or complicated to compute (and there are other methods to use in that case).
+
+For example, we look at a function for which there is no formula for the solution: \(f(x)=\tanh(x) - x/3\) (we are looking for a non-zero solution). Since \(\tanh'(x)=\frac{1}{\cosh^2(x)}=\sech^2(x)\), the update rule becomes: \begin{equation} \label{eq:3} x_{n+1}=x_n-\frac{\tanh(x_n)-x_n/3}{\sech^2(x_n)-1/3}. \end{equation}
+
+
+... ...
+
+Exercise 5. Using root-finding calculate \(\sqrt{R}\). Of course, MATLAB has the function sqrt and also the power function as we saw in the previous lecture. But pretend that it did not. What is \(\sqrt{R}\)? Find a simple function \(f\) (that doesn't use the square-root function) so that \(f(\sqrt{2})=0\). (There are several options, so if you don't manage with one option, try another!) Find \(\sqrt{2}\) like a Babylonian†. How many iterations do you need to get an answer that is 1e–15 from the answer given by MATLAB‡? Note: this problem will require you to use a pencil and paper. You will need to differentiate, divide and simplify a fraction before you type your code in MATLAB.
+
+Notice that the starting point is important. Find starting points that converge to each of \(\pm\sqrt{2}\).
+
+Exercise 6. As in the previous problem, write an iterative code that will find \(\frac{1}{R}\). You might think that you will have to divide in your code, but that is not true; it depends on the function that you use. Again, if at first you do not succeed, try a different function. Simplify the formula so that it does not need division, and then implement the code to find 1/101. You will need to start close to the answer for the method to converge.
+
+*Also referred to as the Newton-Raphson Method.
+
+†See Methods of computing square roots on Wikipedia for a reference.
+
+‡The notation 1e–15 is legal notation in MATLAB and it means \(1\times10^{-15}\). Also,with MATLAB 1e–16 is the smallest precision (not number) possible i.e., 1+1e–16=1 (although 1+2e–16≠1)
+
+
+\(f(x)=\sqrt{x}*\sqrt{x} - x\)
+
+\(x_{n+1} = x_{n} - (\sqrt{x_{n}}*\sqrt{x_{n}} - x_{n})/( - 1))
+
+\end{document}
