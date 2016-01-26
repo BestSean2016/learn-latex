@@ -42,13 +42,12 @@ Exercise 6. As in the previous problem, write an iterative code that will find \
 ‡The notation 1e–15 is legal notation in MATLAB and it means \(1\times10^{-15}\). Also,with MATLAB 1e–16 is the smallest precision (not number) possible i.e., 1+1e–16=1 (although 1+2e–16≠1)
 
 
-\(f(x)=\sqrt{x}*\sqrt{x} - x\)
+if \(\sqrt{x}  = b\), then \({x^2} = b\),
+let \[f(x) = {x^2} - b\], we have,
+\[{x_{n + 1}} = {x_n} - \frac{{f({x_n})}}{{f'({x_n})}} = {x_n} - \frac{{{x_n}^2 - b}}{{2\left( {{x_n}} \right)}} = \frac{{2{x_n}^2 - {x_n}^2 + b}}{{2{x_n}}} = \frac{1}{2}\left( {{x_n} + \frac{b}{{{x_n}}}} \right)\].
 
-\(x_{n+1} = x_{n} - (\sqrt{x_{n}}*\sqrt{x_{n}} - x_{n})/(- 1)\)
 
 
-
-\[\frac{{{x^{\frac{1}{2}}}}}{{{{\left( {{x^{\frac{1}{2}}}} \right)}^\prime }}} = \frac{{{x^{\frac{1}{2}}}}}{{\frac{1}{2}\left( {{x^{ - \frac{1}{2}}}} \right)}} = 2{x^{\frac{1}{2}}}{x^{\frac{1}{2}}} = 2x\]
 
 
 \end{document}
